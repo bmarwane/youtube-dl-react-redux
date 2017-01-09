@@ -1,11 +1,12 @@
 import express from 'express'
 import { renderToString } from 'react-dom/server'
 import React from 'react';
-import { Provider }              from 'react-redux';
+import { Provider } from 'react-redux';
 
 
 
 import {initStore} from '../shared/store'
+import {App} from '../shared/components/App'
 
 
 var app = express();
@@ -19,7 +20,7 @@ function renderPage(){
     const store = initStore()
 
     const componentHTML = renderToString(<Provider store={store}>
-                                            <h1>Hello boy</h1>
+                                        <App />
                                     </Provider>);
     return `
       <!DOCTYPE html>

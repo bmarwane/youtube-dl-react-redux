@@ -7,7 +7,6 @@ import {  combineReducers, applyMiddleware }  from 'redux';
 import {initStore} from '../shared/store';
 import {App} from '../shared/components/App';
 
-
 const store = initStore();
 
 render(

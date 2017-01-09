@@ -8,6 +8,6 @@ export class App extends React.Component {
     }
 
     render() {
-        return <div>content</div>
+        return <div>contwxxwcent</div>
     }
 };

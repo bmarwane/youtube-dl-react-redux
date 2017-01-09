@@ -1,19 +1,18 @@
 import React                from 'react';
 import { render }           from 'react-dom';
-import { Router, browserHistory } from 'react-router';
 
 import { Provider }         from 'react-redux';
-import routes               from 'routes';
 import {  combineReducers, applyMiddleware }  from 'redux';
 
-import {initStore} from 'store';
+import {initStore} from '../shared/store';
+import {App} from '../shared/components/App';
 
 
 const store = initStore();
 
 render(
   <Provider store={store}>
-    <Router children={routes} history={browserHistory} />
+    <App />
   </Provider>,
-  document.getElementById('react-view')
+  document.getElementById('app')
 );

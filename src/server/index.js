@@ -3,13 +3,17 @@ import { renderToString } from 'react-dom/server'
 import React from 'react';
 import { Provider } from 'react-redux';
 
-
+import webpackMiddleware from '../../webpack.dev'
 
 import {initStore} from '../shared/store'
 import {App} from '../shared/components/App'
 
 
 var app = express();
+
+if (process.env.NODE_ENV !== 'production') {
+    webpackMiddleware(app);
+}
 
 app.get('/', function (req, res) {
     res.end(renderPage())
@@ -33,7 +37,7 @@ function renderPage(){
           
         </head>
         <body>
-          <div id="react-view">${componentHTML}</div>
+          <div id="app">${componentHTML}</div>
           <script type="application/javascript" src="/bundle.js"></script>
         </body>
       </html>

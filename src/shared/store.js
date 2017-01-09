@@ -6,5 +6,4 @@ const reducer  = combineReducers(reducers);
 
 export function initStore(initialState){
     return applyMiddleware(thunkMiddleware)(createStore)(reducer, initialState);
-
 }

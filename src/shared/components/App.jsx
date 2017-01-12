@@ -13,11 +13,25 @@ class AppCmp extends React.Component {
     }
 
     render() {
+        let downloadingMessage = ""
+        let errorMessage = ""
+
+        if(this.props.isDownloading){
+            downloadingMessage = <h4>Downloading ...</h4>;
+        }
+        if(this.props.isError){
+            errorMessage = <h4>An error occured9</h4>;
+        }
+
         return <div className="container">
             <div className="row">
                 <div className="col-md-6 col-md-offset-3">
                     <h2>Enter a youtube URL</h2>
-                    <YoutubeForm />
+                    {errorMessage}
+
+                    <YoutubeForm downloadVideo={this.props.downloadVideoAction} />
+
+                    {downloadingMessage}
                 </div>
             </div>
         </div>
@@ -25,7 +39,10 @@ class AppCmp extends React.Component {
 };
 
 function mapStateToProps(state) {
-    return {}
+    return {
+        isDownloading: state.downloader.get('isDownloading'),
+        isError: state.downloader.get('isError')
+    }
 }
 
 export const App = connect(mapStateToProps, actionCreators)(AppCmp);

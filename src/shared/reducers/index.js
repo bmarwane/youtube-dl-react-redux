@@ -1,1 +1,1 @@
-export { default as search } from './SearchReducer';
+export { default as downloader } from './DownloadReducer';

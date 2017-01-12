@@ -7,10 +7,18 @@ export default class YoutubeForm extends React.Component {
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
     }
 
+    _handleSubmit(e){
+        e.preventDefault()
+        let url = this.refs.videoId.value
+        this.props.downloadVideo(url)
+    }
+
     render() {
-        return <form>
+        return <form onSubmit={this._handleSubmit.bind(this)}>
                 <div className="form-group">
-                    <input className="form-control" placeholder="https://youtube.com..." />
+                    <input ref="videoId"
+                           className="form-control"
+                           placeholder="https://youtube.com..." />
                 </div>
             </form>
 

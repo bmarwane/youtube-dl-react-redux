@@ -9,12 +9,6 @@
   },
   "author": "",
   "license": "ISC",
-  "babel": {
-    "presets": [
-      "es2015",
-      "react"
-    ]
-  },
   "devDependencies": {
     "webpack-dev-middleware": "^1.9.0",
     "webpack-hot-middleware": "^2.15.0"

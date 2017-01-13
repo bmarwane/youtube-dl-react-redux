@@ -10,7 +10,9 @@ export default class YoutubeForm extends React.Component {
     _handleSubmit(e){
         e.preventDefault()
         let url = this.refs.videoId.value
-        this.props.downloadVideo(url)
+        var urlParts = url.split('?v=')
+        var videoId = urlParts.length > 1 ? urlParts[1] : url
+        this.props.downloadVideo(videoId)
     }
 
     render() {

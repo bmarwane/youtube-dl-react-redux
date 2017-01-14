@@ -20,7 +20,7 @@ class AppCmp extends React.Component {
             downloadingMessage = <h4>Downloading ...</h4>;
         }
         if(this.props.isError){
-            errorMessage = <h4>An error occured9</h4>;
+            errorMessage = <h4>An error occured</h4>;
         }
 
         return <div className="container">
